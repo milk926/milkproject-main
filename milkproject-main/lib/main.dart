@@ -1,5 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:milkproject/farmer/page/dailymilk-quandity.dart';
+import 'package:milkproject/farmer/page/dung-cake.dart';
 import 'package:milkproject/farmer/page/farmer_home_page.dart';
 import 'package:milkproject/firebase_options.dart';
 import 'package:milkproject/society/page/homepage.dart';
@@ -33,7 +35,7 @@ Future<void> main() async {
   );
 
   runApp(
-    const MaterialApp(
+    MaterialApp(
       debugShowCheckedModeBanner: false,
       home: FarmerChoiceScreen(), // Pass the test user to the ProfileScreen
     ),
