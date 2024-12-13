@@ -10,7 +10,7 @@ class AddToCartPage extends StatelessWidget {
     // Demo products to display when cart is empty
     final List<Map<String, dynamic>> demoProducts = [
       {
-        'name': 'milk',
+        'name': 'hay',
         'price': 26,
         'description': 'This is a sample description for Demo Product 1.',
         'image':
