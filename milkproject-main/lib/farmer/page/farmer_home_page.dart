@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../../user/page/buy_now.dart';
+import '../../user/page/services/addtocart.dart';
+import 'dailymilk-quandity.dart';
+import 'dung-cake.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -69,17 +74,24 @@ class FarmerChoiceScreen extends StatelessWidget {
             const SizedBox(height: 20),
 
             // Daily Milk Details
-            const Card(
-              elevation: 5,
-              margin: EdgeInsets.symmetric(vertical: 10),
-              child: ListTile(
-                title:
-                    Text('Daily Milk Details', style: TextStyle(fontSize: 18)),
-                subtitle: Text('Milk Yield: 1 liters\nPrice per liter: \₹60'),
-                leading: Icon(Icons.local_drink, size: 40, color: Colors.blue),
-              ),
-            ),
-
+          
+        Card(
+          elevation: 5,
+          margin: EdgeInsets.symmetric(vertical: 10),
+          child: ListTile(
+            title: Text('Daily Milk Details', style: TextStyle(fontSize: 18)),
+            subtitle: Text('Milk Yield: 1 liters\nPrice per liter: ₹60'),
+            leading: Icon(Icons.local_drink, size: 40, color: Colors.blue),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>  MilkForm(),
+                ),
+              );
+            },
+          ),
+        ),
             // Cow Dung Cake
             Card(
               elevation: 5,
@@ -91,8 +103,86 @@ class FarmerChoiceScreen extends StatelessWidget {
                   'https://media.istockphoto.com/id/1443057822/vector/compost-bin-icon-waste-clipart-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=emYkaS9ylxy-ccjFDT3WlfF1h9-Nx-dzKbuZAR1IiLI=',
                   width: 40,
                 ),
+                onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>  DungForm(),
+                ),
+              );
+            },
               ),
             ),
+            SizedBox(height: 30,),
+Row(
+  mainAxisAlignment: MainAxisAlignment.center, // Center align the buttons
+  children: [
+    SizedBox(
+      width: 150.0, // Set the desired button width
+      child: ElevatedButton(
+        onPressed: () {
+
+          Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => BuyNowPage(),
+                  ),
+                );
+          // Handle button press action
+        },
+        style: ElevatedButton.styleFrom(
+          foregroundColor: Colors.white, 
+          backgroundColor: const Color.fromARGB(255, 19, 137, 37), // Text color
+          padding: EdgeInsets.symmetric(vertical: 12.0),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16.0), // Rounded corners
+          ),
+          elevation: 8.0, // Shadow depth
+        ),
+        child: Text(
+          'Buy Now',
+          style: TextStyle(
+            fontSize: 16.0, // Font size
+            fontWeight: FontWeight.bold, // Font weight
+          ),
+        ),
+      ),
+    ),
+    SizedBox(width: 20.0), // Add some spacing between the buttons
+    SizedBox(
+      width: 150.0, // Set the desired button width
+      child: ElevatedButton(
+        onPressed: () {
+          Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AddToCartPage(cartProducts: [],),
+                  ),
+                );
+          // Handle second button press actionAddToCartPage
+        },
+        style: ElevatedButton.styleFrom(
+          foregroundColor: Colors.white, 
+          backgroundColor: const Color.fromARGB(255, 19, 137, 37), // Text color
+          padding: EdgeInsets.symmetric(vertical: 12.0),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16.0), // Rounded corners
+          ),
+          elevation: 8.0, // Shadow depth
+        ),
+        child: Text(
+          'Add to Cart',
+          style: TextStyle(
+            fontSize: 16.0, // Font size
+            fontWeight: FontWeight.bold, // Font weight
+          ),
+        ),
+      ),
+    ),
+  ],
+)
+
+
           ],
         ),
       ),
